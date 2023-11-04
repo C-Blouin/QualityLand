@@ -365,7 +365,6 @@ nav ul li a:hover,
 
 /* Primary Hero and Order Book anchor and button styles. */
 #hero a,
-#hero a.active,
 #order-button { 
     display: block;
     color: white;
@@ -381,6 +380,20 @@ nav ul li a:hover,
     /* Setting up a transition for when the elements are hovered over. */
     transition: var(--transition);
     font-family: var(--heading-font);
+}
+
+#hero a {
+  /* Center the anchor element in the parent container. */
+  margin: 0 auto;
+  /* Set a min-width to the anchor element. */
+  min-width: 180px;
+  padding: 0.8rem 1.25rem;
+}
+
+#hero a.active,
+#hero a.focus {
+  text-transform: none;
+  letter-spacing: 0.1rem;
 }
 
 /* Primary sections styles */
@@ -1119,7 +1132,6 @@ Use the before pseudo to allow the entire button container to become clickable b
 #order-button,
 #hero a {
   max-width: 220px;
-  /* Center the button text. */
   text-align: center;
 }
 
