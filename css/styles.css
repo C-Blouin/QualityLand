@@ -178,6 +178,7 @@ header {
   filter: none;
   z-index: 99;
   transition: var(--transition);
+  position: fixed;
 }
 
 /* Nav anchor styles, font family, size, weight, and some letter spacing. */
@@ -1327,10 +1328,12 @@ Use the before pseudo to allow the entire button container to become clickable b
 /* Apply the following styles when the viewport width reaches 800px. */
 @media screen and (max-width: 800px) {
 
-
   p, ul, blockquote, .form-control, #pills-details > ul li {
     font-size: 1em;
     hyphens: none;
+  }
+
+  p, ul, blockquote, #pills-details > ul li {
     text-align: center;
   }
 
