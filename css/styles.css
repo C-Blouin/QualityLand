@@ -1111,14 +1111,11 @@ Use the before pseudo to allow the entire button container to become clickable b
     padding: 1.2em 2em;
 }
 
-/* Set a max width and center the order book button. */
 #order-button {
-  max-width: 220px;
   margin: 3rem auto 0 auto;
-  /* Center the button text. */
-  text-align: center;
 }
 
+#order-button,
 #hero a {
   max-width: 220px;
   /* Center the button text. */
@@ -1412,15 +1409,6 @@ Use the before pseudo to allow the entire button container to become clickable b
 
 /* White space for the About and Author sections when the device width is 560px wide. */
 @media screen and (max-width: 560px) {
-
-  
-  /* #hero a {  */
-      /* White space properties. */
-      /* padding: 0.8rem 2rem;
-      letter-spacing: 0.05rem; */
-      /* Clamp the font size of the anchor and button elements, to dynmaically adjust the font size for smaller devices. */
-      /* font-size: clamp(var(--font-xs), 4vw, var(--font-sm));
-  } */
 
   #author {
     padding: 0 0.5rem;
