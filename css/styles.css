@@ -1119,6 +1119,12 @@ Use the before pseudo to allow the entire button container to become clickable b
   text-align: center;
 }
 
+#hero a {
+  max-width: 220px;
+  /* Center the button text. */
+  text-align: center;
+}
+
 /* Overwriting bootstrap form styles of the form-control class. */
 .form-control {
   display: block;
@@ -1408,14 +1414,13 @@ Use the before pseudo to allow the entire button container to become clickable b
 @media screen and (max-width: 560px) {
 
   
-  #hero a { 
+  /* #hero a {  */
       /* White space properties. */
-      width: 300px!important;
-      padding: 0.8rem 2rem;
-      letter-spacing: 0.05rem;
+      /* padding: 0.8rem 2rem;
+      letter-spacing: 0.05rem; */
       /* Clamp the font size of the anchor and button elements, to dynmaically adjust the font size for smaller devices. */
-      font-size: clamp(var(--font-xs), 4vw, var(--font-sm));
-  }
+      /* font-size: clamp(var(--font-xs), 4vw, var(--font-sm));
+  } */
 
   #author {
     padding: 0 0.5rem;
