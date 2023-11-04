@@ -351,9 +351,21 @@ nav ul li a:hover,
     color: var(--white);  
 }
 
+/* Overwriting the default bootstrap styles, removing them */
+.btn {
+  background: none;
+  border: none;
+  color: inherit;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  line-height: normal;
+  border-radius: 0;
+}
 
 /* Primary Hero and Order Book anchor and button styles. */
 #hero a,
+#hero a.active,
 #order-button { 
     display: block;
     color: white;
@@ -369,18 +381,6 @@ nav ul li a:hover,
     /* Setting up a transition for when the elements are hovered over. */
     transition: var(--transition);
     font-family: var(--heading-font);
-}
-
-/* Overwriting the default bootstrap styles, removing them */
-.btn {
-  background: none;
-  border: none;
-  color: inherit;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  line-height: normal;
-  border-radius: 0;
 }
 
 /* Primary sections styles */
