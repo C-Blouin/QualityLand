@@ -1327,6 +1327,13 @@ Use the before pseudo to allow the entire button container to become clickable b
 /* Apply the following styles when the viewport width reaches 800px. */
 @media screen and (max-width: 800px) {
 
+
+  p, ul, blockquote, .form-control, #pills-details > ul li {
+    font-size: 1em;
+    hyphens: none;
+    text-align: center;
+  }
+
   /* When the screen reaches 800px width, the about section will overwritten to appear with a background image. */
   #about {
     /* Original Image Reference from https://www.lucyda.de/wp-content/uploads/2019/05/qualityland-cover-955x716.jpg  */
