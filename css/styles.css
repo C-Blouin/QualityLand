@@ -1,0 +1,1526 @@
+@charset "utf-8";
+
+/* 
+
+Advanced CSS Assignment 2 - QualityLand Book Website
+
+Christopher Blouin
+
+*/
+
+/* Importing Font Family of Raleway */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700&display=swap');
+
+/* 
+
+Cusotm font-face declaration for the Decima+ Regular 2 font, the official font used on the QualityLand book cover!
+
+Thank you to onlinewebfonts for the font, font reference here: https://www.onlinewebfonts.com/download/b5ed479ddc6f88c0425233a3abb03535 
+
+*/
+@font-face {
+    font-family: 'Decima+ Regular 2'; 
+    src: url('fonts/decima-regular/decima-regular.eot') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Declare Root styles. */
+
+/* Using variables to keep the layout and CSS styles consistent across the entire design of the website. */
+:root {
+    /* Color Pallete Variables. */
+    --primary-color: #caaf56;
+    --secondary-color: #c4c092;
+    --white: #ffffff;
+    --slate-black: #141414;
+    --light-slate-black: #131212;
+    --tint: rgba(202, 175, 86, 0.3);
+    --hover-tint: rgba(202, 175, 86, 0.6);
+    --hover-tint-light: rgba(202, 175, 86, 0.2);
+    /* Font Family Variables. */
+    --heading-font: 'Decima+ Regular 2';
+    --body-font: 'Raleway', sans-serif;
+    /* Font Sizing Variables. */
+    --font-xxs: 0.9rem;
+    --font-xs: 1.2rem;
+    --font-sm: 1.4rem;
+    --font-md: 1.6rem;
+    --font-lg: 1.8rem;
+    --font-xlg: 2rem;
+    --font-xxlg: 2.2rem;
+    --hero-heading: 10rem;
+    --primary-heading: 4.8rem;
+    --medium-heading: 4rem;
+    --secondary-heading: 3rem;
+    --sub-heading: 2.8rem;
+    /* Hamburger Menu Sizing Variable. */
+    --hamburger-toggle: 2.3rem;
+    /* Transition Variable. */
+    --transition: all 0.3s ease-in-out;
+}
+
+/* Apply the border-box sizing to all elements and either before and after elements. */
+html,
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+/* All elements will inherit the box-sizing set in the root html styles. */
+*::before, *::after, * {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    line-height: 1.6;
+    font-size: 100%;
+}
+
+/* Setting the globale font-family for the entire document, which can be overwritten using the casecase later on.  */
+body {
+  font-family: var(--body-font);
+}
+
+/* For users that don't prefer animations or motion in the browser, disable all these properties. */
+@media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+
+    .hidden {
+      transition: none;
+    }
+  }
+
+/* Thank you to Fireship for this useful Scroll Animations reference, check it out here. https://www.youtube.com/watch?v=T33NN_pPeNI&t=13s */
+
+.hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all 1s;
+}
+
+.slide-animation {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+ 
+/* End of Fireship Styles Attrition */
+
+
+/* Start of scrollbar styles for browsers that support these styles. */
+body::-webkit-scrollbar {
+    width: 7px; /* width of the entire scrollbar */
+}
+  
+/* Scrollbar track background color */
+body::-webkit-scrollbar-track {
+    background: var(--slate-black); 
+}
+
+body::-webkit-scrollbar-thumb {
+    /* Adjust the colour of the scroll thumb */
+    background-color: var(--primary-color); 
+    /* The roundness of the scroll thumb. */
+    border-radius: 25px;
+    /* The scrollbar height. */
+    height: 2rem;
+}
+  
+/* End of scrollbar styles. */
+
+/* If the user selects any body copy or elements on the page, adjust the font and background colours. */
+*::selection {
+    background-color: var(--slate-black);
+    color: var(--primary-color);
+}
+
+/* Global heading styles using a combinator selector. */
+h1, h2, h3, h4, h5, h6 {
+  /* Override root line-height, reduce the line height spacing slightly for headings */
+    line-height: 1.4;
+    /* Apply the display font to all headings. */
+    font-family: var(--heading-font);
+    /* All headings will be uppercase only regardless of how the characters are typed in the HTML. */
+    text-transform: uppercase;
+    /* Remove default margins and padding */
+    margin: 0;
+    padding: 0;
+}
+
+/* Center text of all heading elements and paragraphs. */
+h1, h2, h3, h4, h5, h6, p {
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 2rem;
+  font-size: clamp(var(--secondary-heading), 12vw, var(--medium-heading));  
+}
+
+/* Global paragraph styles. */
+p {
+  padding: 0 1.25rem;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* Header styles. */
+header {
+  width: 100%;
+  filter: none;
+  z-index: 99;
+  transition: var(--transition);
+}
+
+/* Nav anchor styles, font family, size, weight, and some letter spacing. */
+nav ul li a {
+  color: var(--white);
+  font-size: 1.1rem;
+  font-family: var(--heading-font);
+  font-weight: 500;
+  letter-spacing: 0.05rem;
+}
+
+header .nav-link {
+  font-size: 1.2rem;
+  transition: var(--transition);
+}
+
+header .nav-link:hover {
+  color: var(--primary-color);
+}
+
+nav ul li a,
+nav ul li a::before {
+  /* Set up a transition to be used when hovered later on. */
+  transition: 0.3s;
+}
+
+/* Set the links to the primary gold color when hovered over or once a link becomes active. */
+nav ul li a:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+  color: var(--primary-color);
+}
+  
+  /* Create an hidden block element before the anchor element, when hovered the width will expand to 100% forming a line above it. */
+  nav ul li a::before {
+    display: block;
+    content: "";
+    height: 0.05rem;
+    width: 0;
+    margin-bottom: 0.5rem;
+}
+  
+  /* When the anchor links are hovered, the above before selector width will be set to 100% with a background color to fill in the line. */
+  nav ul li a:hover::before {
+    width: 100%;
+    background-color: var(--primary-color);
+}
+
+/* Background and white space styles of the navbar bootstrap component */
+.navbar {
+    background-image: radial-gradient(circle, rgba(22, 22, 22, 1) 0%, rgba(24, 24, 24, 1) 100%);
+    padding: 1rem 0;
+    margin: 0;
+}
+
+/* Add spacing between each navbar item. */
+.nav-item {
+    padding: 0 0.75rem;
+}
+
+/* Set the canvas width to be minimum 75 vertical width of the viewport at all times regardless of screen size, this is to allow users to click off the menu to close it. It can only be a maximum of 600 pixels wide. */
+.offcanvas {
+    max-width: min(75vw, 600px);
+}
+
+/* Remove the default canvas border when toggled out from the side. */
+.offcanvas.offcanvas-end {
+    border-left: none;
+}
+
+/* Override bootsrap navbar-toggler button styles. */
+.navbar-toggler {
+    outline: none;
+    /* Apply custom size to the hamburger menu */
+    font-size: var(--hamburger-toggle);
+    border: none;
+    box-shadow: none;
+}
+
+/* Remove the default box shadow when the toggler button is in the focused state. */
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+/* Override the hamburger icon from bootstrap to a custom SVG image. */
+[data-bs-theme=dark] .navbar-toggler-icon {
+    background-image: url('../images/hamburger.svg');
+}
+
+/* Center the navbar element contents. */
+.navbar > .container-fluid {
+  justify-content: center;
+}
+
+/* Navigation Bar Media Query */
+@media screen and (max-width: 1200px) {
+
+    .navbar-nav {
+        justify-content: center;
+        align-items: center;
+        padding-top: 5rem;
+        text-align: center;
+    }
+
+    /* At width of 1200px of the viewport, the container elements will shift back to the left using space between */
+    .navbar > .container-fluid {
+        justify-content: space-between;
+    }
+
+    /* Remove the navbar background at smaller device widths, creates a more clean design as I don't have a navigation logo. */
+    .navbar {
+      background-image: none;
+    }
+
+    /* White space on the top and bottom of the navigation item elements. */
+    .nav-item {
+        margin: 1rem 0;
+    }
+
+    /* Set the background color of the slide out canvas body at smaller screen widths. */
+    .offcanvas-body {
+        background-color: var(--light-slate-black);
+    }
+}
+
+/* Setting the hero headings to the display font of Decima using the font variable in the rooot. */
+#hero h1, 
+#hero h2 {
+    font-family: var(--heading-font);
+}
+
+/* Clamping the font size to adjust based on the viewport width. */
+#hero h1 { 
+    line-height: 1.1;    
+    font-size: clamp(var(--sub-heading), 12vw, var(--hero-heading));    
+    letter-spacing: 0.5rem;
+    color: var(--primary-color);
+}
+
+/* Hero sub heading styles */
+#hero h2 {
+    /* Clamping the font size to adjust based on the viewport width */
+    font-size: clamp(1.6rem, 5vw, var(--secondary-heading));
+    margin: 0;
+    font-weight: 400; 
+    max-width: 800px;    
+    text-transform: none;   
+}
+
+/* Hero paragraph styles. */
+#hero p {
+    max-width: 830px;
+    margin: 2rem auto;
+    color: var(--white);
+}
+
+/* Hero and about heading white space. */
+#hero h2,
+#about h2 {
+    padding: 0 0.25rem;
+}
+
+
+#book-details > h2,
+.accordion h2,
+.author-content h3 {
+    color: var(--primary-color);
+}
+
+#hero h2, #hero a {
+    color: var(--white);  
+}
+
+
+/* Primary Hero and Order Book anchor and button styles. */
+#hero a,
+#order-button { 
+    display: block;
+    color: white;
+    outline: 2px solid var(--primary-color);
+    text-decoration: none;
+    /* White space properties. */
+    padding: 0.8rem 2rem;
+    letter-spacing: 0.1rem;
+    /* Clamp the font size of the anchor and button elements, to dynmaically adjust the font size for smaller devices. */
+    font-size: clamp(var(--font-xs), 2vw, var(--font-sm));
+    margin-top: 1rem;
+    text-transform: uppercase;
+    /* Setting up a transition for when the elements are hovered over. */
+    transition: var(--transition);
+    font-family: var(--heading-font);
+}
+
+/* Overwriting the default bootstrap styles, removing them */
+.btn {
+  background: none;
+  border: none;
+  color: inherit;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  line-height: normal;
+  border-radius: 0;
+}
+
+/* Primary sections styles */
+#hero, #about, #author, #book-reviews {
+    display: grid;
+    place-content: center;
+    place-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+    margin: 3rem auto;
+}
+
+/* Setting a max-width for the section contents, along with a margin auto to center the contents in the container. */
+#hero, #about, #author, #order-book, #book-details, #themes {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Container padding for the hero section landing page. */
+#hero {
+  padding: 15rem 0.5rem;
+  min-height: 100vh; 
+}
+
+#hero-wrapper {
+  background: rgb(47,47,47);
+   /* Landing Page Image Source from Rafael on Unsplash: https://unsplash.com/photos/time-lapse-photography-of-city-building-b0eg-PYGICQ */
+  background-image: radial-gradient(circle, rgba(22, 22, 22, 0.85) 0%, rgba(13,13,13,1) 100%),
+  url('../images/hero-bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-attachment: fixed;
+}
+
+/* Override the max-width for the about section. */
+#about {
+  max-width: 1500px;
+  /* White space at the bottom of the about section. */
+  padding-bottom: 4rem;
+}
+
+#about h3 {   
+  font-size: clamp(22px, 2vw, 34px);
+}
+
+/* About section paragraph styles, only the first descendant paragraph element. */
+#about > p:nth-of-type(1) {
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: clamp(16px, 2vw, 18px);
+    padding: 0 1rem;
+}
+
+/* About section container wrapper styles, background styles. */
+.about-wrapper {
+  /* Thanks to Vecteezy for the Globe SVG Graphic, Reference here: https://www.vecteezy.com/vector-art/437771-vector-globe-icon */
+  background-image: url("../images/quality-land-globe-left.svg");
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* Themes sectiopn white space */
+#themes {
+  padding: 160px 0 100px 0;
+}
+
+/* Themes heading styles. */
+#themes h2 {
+  margin-bottom: 4rem;
+}
+
+#book-themes {
+  padding: 0;
+}
+
+/* Override the min height for the book-reviews section. */
+#book-reviews {
+  min-height: 80vh;
+  margin: 3rem auto;
+}
+  
+/* Book theme section cards grid container. */
+#book-theme-cards {
+    text-align: center;
+    display: grid;
+    /* Create 2 equal coulumns using the repeat function. */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 3rem;
+    padding: 0 3rem;
+    transition: var(--transition);
+}
+
+/* Book theme card heading styles */
+#book-theme-cards h3 {
+    /* Center the headings */
+    margin: 1rem auto;
+    /* Adjust the font based on device width using the clamp function. */
+    font-size: clamp(var(--font-xs), 4vw, var(--font-sm));
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+    /* Remove the default bottom margin from the heading element. */
+    margin-bottom: 0;
+}
+
+/* Top and bottom white space between the article elements. */
+#book-theme-cards article {
+    margin: 1rem 0;
+}
+
+/* Top and bottom margin white space of the theme SVG graphics */
+#book-theme-cards article svg {
+  margin: 1rem 0;
+  /* SVG color fill */
+  fill: var(--primary-color);
+}
+
+/* Set up the transition for the article card and SVG */
+#book-theme-cards article, 
+#book-theme-cards article svg {
+    transition: var(--transition);
+}
+
+/* Rotate and scale the SVG graphics when the article cards are hovered over. */
+#book-theme-cards article:hover svg {
+  transform: rotate(360deg) scale(1.1);
+  
+}
+
+/* Scale up the article card content on hover. */
+#book-theme-cards article:hover {
+  transform: scale(1.1);
+}
+
+/* Book Theme Media Query */
+@media screen and (max-width: 1200px) {
+
+  /* When the device width is 1200px wide, the container will transform into a single column layout. */
+  #book-theme-cards {
+    grid-template-columns: repeat(1, 1fr);
+    /* Consistent top and bottom spacing of the container. */
+    gap: 1rem 0;
+    padding: 0 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+}
+
+/* Book details section text alignment and whitespace styles. */
+#book-details {
+    padding-top: 2rem;
+    text-align: center;
+}
+
+/* Top and bottom marginal white space of the book-details heading. */
+#book-details h3 {
+    margin: 1rem 0;
+}
+
+/* Start of Primary Author Styles */
+
+#about-content-wrapper,
+#author-content-wrapper {
+  /* Set the min-height of the about and author wrappers */
+  min-height: 50vh;
+  display: grid;
+  /* Set up column grid tracks, creating 8 equal columns with 1 fractional unit of space each. */
+  grid-template-columns: repeat(8, 1fr);
+  align-items: center;
+  /* Top and bottom white space */
+  padding: 80px 0;
+}
+
+#about-content-wrapper {
+  /* Set up column grid tracks, creating 9 equal columns with 1 fractional unit of space each. */
+  grid-template-columns: repeat(14, 1fr);
+}
+
+#about-content-wrapper p {
+  line-height: 2.2;
+}
+
+#about-container {
+  min-height: 70vh;
+}
+
+/* Position the primary author content within the author section */
+.about-content,
+.author-content {
+  /* Start at the 2nd column, end at the 6th. */
+  grid-area: 1 / 2 / 1 / 6;
+}
+
+.author-content {
+  /* Start at the 2nd column, end at the 6th. */
+  grid-area: 1 / 2 / 1 / 6;
+}
+
+/* Remove default padding and margins from the figure containing the primary profile bitmoji image. */
+figure {
+  padding: 0;
+  margin: 0;
+}
+
+/* Author Profile Picture Styles */
+.about-picture,
+.profile-picture {
+  /* Set the image to display block to allow for more control over it's style properties. */
+  display: block;
+  /* Set a max-width on the image. */
+  max-width: 100%;
+  /* Keep the aspect ratio contained in the width container. */
+  object-fit: contain;
+}
+
+/* About picture grid content styles. */
+.about-picture {
+  /* Start at the 1st column end at the 4th. */
+  grid-area: 1 / 1 / 1 / 4;
+  width: auto;
+  /* Image height. */
+  height: 340px;
+  /* Left and right margins */
+  margin: 0 1rem;
+  
+}
+
+/* About Book Content Media Query */
+@media screen and (min-width: 1200px) {
+
+  .about-picture {
+    width: 370px;
+    height: 340px;
+  }
+
+  #about-content-wrapper {
+    padding: 7rem 2rem;
+  }
+
+}
+
+/* Position of the author profle picture */
+.profile-picture {
+  /* Start at the 7nd column, end at the 8th. */
+  grid-area: 1 / 7 / 1 / 8;
+  /* Set a fixed width and height to the image container. */
+  width: 300px;
+  height: 340px;
+}
+
+/* Position of the author text content */
+.about-content {
+  /* Start at the 6nd column, end at the 15th. */
+  grid-area: 1 / 6 / 1 / 15;
+}
+
+/* Profile image styles. */
+.about-picture img,
+.profile-picture img {
+  display: inline;
+  margin: 3rem auto 0 auto;
+  height: 100%;
+  width: auto;
+}
+
+@media screen and (max-width: 768px) {
+    
+  h1 {
+      letter-spacing: 0.35rem;
+  }
+  
+  section > h2 {
+      padding: 0 1rem;
+  }
+  
+}
+
+@media screen and (max-width: 540px) {
+
+    /* Adjust the about and author image element styles for screen widths of 540px */
+    .about-picture,
+    .profile-picture {
+        transition: 0.3s ease-in-out;
+        /* Adjust the width to prevent overflow. */
+        height: 220px;
+        width: 220px;
+    }
+}
+
+/* Section element white space. */
+section {
+  padding: 100px 0.5rem;
+}
+
+/* Author section bottom margin white space */
+#author {
+    margin-bottom: 5rem;    
+}
+
+/* Set a fixed width to the author section paragraph content. */
+.author-sub-text {
+  max-width: 800px;
+  padding-bottom: 1rem;
+}
+  
+/* End of Author Styles */
+
+/* Setting the max-width of the Bootstrap accordion and .nav-pills container element */
+.accordion, .nav-pills {
+    max-width: 1200px;
+}
+
+.accordion, .nav-pills, #pills-tabContent {
+    margin: 0 auto;
+    padding: 0 1em;
+}
+
+/* Transparent pill tab buttons */
+.nav-pills button,
+.tab-pane a[href^="#"] {
+    background-color: transparent;
+}
+
+.tab-pane a[href^="#"] {
+  outline: 2px solid var(--primary-color);
+}
+
+/* Link and pill button text colour styles. */
+.nav-pills .nav-link,
+.tab-pane a[href^="#"] {
+    color: var(--white);
+}
+
+/* Author info link styles. */
+.tab-pane a[href^="#"] {
+    display: block;
+    max-width: 300px;
+    text-decoration: none;
+    padding: 1rem 1.25rem;
+    margin: 2rem auto;
+    border-radius: 0.25rem;
+}
+
+.nav-pills .nav-link,
+.tab-pane a[href^="#"] {
+    transition: var(--transition);
+}
+
+/* Pill container nav link item styles. */
+.nav-pills .nav-link {
+  /* Allow items to appear inline side by each. */
+  display: inline-flex;
+  /* Align the links to the center. */
+  align-items: center;
+  gap: 0.5rem;
+  /* Adjust the font size depending on the users device width. */
+  font-size: clamp(1.1rem, 2vw, var(--font-xs));
+  letter-spacing: 0.05rem;
+  font-family: var(--body-font);
+  padding: 1rem 1.25rem;
+  text-transform: uppercase;
+  border-radius: 0;
+}
+
+/* Anchor and button hover styles, these styles create a box shadow and transforms the element on the Y axis, indicating to the suer it's a clickable element. */
+#hero a:hover,
+.nav-pills .nav-link:hover,
+.nav-pills .nav-link.active,
+#order-button:hover  {
+    transform: translateY(0.2rem);
+    background-color: var(--light-slate-black);
+    color: var(--primary-color);
+    box-shadow: 6px 6px 0 0 var(--primary-color);
+}
+
+/* When a tab link is active, indicate the state with the primary color. */
+.nav-pills .nav-link.active {
+   outline: 2px solid var(--primary-color);
+}
+
+/* Fill in the author info anchor element with the tint variable from the root. */
+.tab-pane a[href^="#"]:hover {
+    background-color: var(--hover-tint-light);
+}
+
+.nav-pills .nav-link:hover,
+.tab-pane a[href^="#"]:hover {
+    transform: translateY(-0.2rem);
+}
+
+/* Book Details tab content list styles. */
+#pills-tabContent div ul {
+    /* Remove default list type, setting it to none. */
+    list-style-type: none;
+    /* Remove the default padding from the unordered list element. */
+    padding: 0;
+    /* Top margin, remove the default margins from the right, left, and bottom. */
+    margin: 2rem 0 0 0;
+}
+
+/* Set a max-width to the tab content */
+#pills-tabContent  {
+    max-width: 800px;
+    /* Align the container text content to the center */
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 2rem;  
+}
+
+/* All content with the class of .tab-pane will appear as white. */
+.tab-pane {
+    color: var(--white);
+}
+
+/* Tab pane paragraph white space. */
+.tab-pane p {
+    padding: 1rem;
+}
+
+
+/* Strong element styles. Creates a hightlight of important text in the HTML document. */
+.tab-pane strong,
+.accordion-body strong {
+  font-weight: 400;
+  text-shadow: 0 0 1px var(--primary-color);
+  color: var(--primary-color);
+}
+
+/* The ul elements in the details and genre tabs will wrap with flex, to dynamically adjust on smaller screen widths. */
+#pills-details > ul,
+#pills-genre > ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+
+/* Detail and genre list item styles. */
+#pills-details > ul li,
+#pills-genre > ul li {
+  color: var(--primary-color);
+  border-radius: 0.25rem;
+  font-weight: 600;
+  /* White space properties. */
+  padding: 1rem 2rem;
+  letter-spacing: 0.05rem;
+}
+
+/* Award and detail tab content list item styles. */
+#pills-awards > ul li,
+#pills-details > ul li  {
+  padding: 1rem 0;
+}
+
+#pills-awards ul li strong {
+  font-weight: 600;
+  font-size: var(--font-xs);
+}
+
+/* Genre Tab Media Query. */
+@media screen and (max-width: 768px) {
+  
+  /* When the screen is at 768px wide, the flex items will display vertically with flex-direction column, this is needed to prevent overflow on mobile devices. */
+  #pills-genre > ul {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  #pills-genre > ul li:nth-of-type(1) {
+    margin-top: 2rem;
+  }
+
+}
+
+#author-accordion {
+    margin: 0 auto;
+}
+
+/* Author accordion heading styles. */
+.accordion h2 {
+    color: var(--primary-color);
+    text-align: center;
+}
+
+/* Set the focused accordion header background to transparent */
+h2.accordion-header:focus {
+  background-color: transparent;
+}
+
+.accordion-item {
+    /* Override default bootstrap accordion border and background colours */
+    border: none;
+    background-color: var(--light-slate-black);
+    transition: 0.2s ease-in-out;
+}
+
+/* Max width of the accordion items. Center with automatic margins. */
+.accordion-flush .accordion-item {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+/* Accordion header button styles. */
+h2.accordion-header button {
+    /* Clamp the font size to dynamically adjust is based on the viewport vertical width. */
+    font-size: clamp(var(--font-md), 5vw, var(--font-lg));
+    color: var(--primary-color);
+    background-color: var(--light-slate-black);
+}
+
+/* Accordion body colour and white space. */
+.accordion-body {
+    color: var(--white);
+    padding: 1.25rem 0.5rem;
+}
+
+.accordion-body p {
+    text-align: left;
+}
+
+.accordion-button {
+    transition: var(--transition);
+}
+
+/* Setting the size of the plus icon in each accordion button. */
+.accordion-button::after {
+  background-size: 1.6rem;
+}
+
+/* If the accordion button doesn't have the .collapsed class, apply these properties. */
+.accordion-button:not(.collapsed) {
+  color: rgb(202, 175, 86);
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  text-align: center;
+}
+
+/* Accordion padding and margins, removing the list styles by setting them to none. */
+
+#collapseFour > div > ul {
+  padding: 0 1.25rem;
+}
+
+#collapseFour > div > ul > li {
+  padding: 1rem 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* More about author section background colour. */
+#more-about-author {
+   background-color: var(--light-slate-black);
+}
+
+/* Details container background image. */
+#details {
+    background-image: radial-gradient(circle, rgb(24, 24, 24) 0%, rgb(17, 17, 17) 100%);
+}
+
+/* Each accordion article will contain no border and have a background-color of --light-slate-black */
+.acordion article {
+    border: none;
+    background-color: var(--light-slate-black);
+}
+
+/* When an item is focused and collapsed, the background will change to a lighter black to indicate the item is currently focused. */
+.accordion-button:focus {
+    border-color: none;
+    box-shadow: none;
+    /* Remove outline */
+    outline: 0;
+    background-color: #0f0f0f;
+}
+
+/* Hover effect of each accordion item to signal it's a clickable item. */
+.accordion-item:hover .accordion-button {
+    background-color: #0f0f0f;
+}
+
+/* Replace the default plus and minus icons with custom icons */
+.accordion-button::after {
+  /* Thanks to Lucide Icons for the SVG, Reference Here: https://lucide.dev/icons/plus */
+  background-image: url('../images/plus.svg');
+}
+
+/* Replace the default collapsed icon with a custom icon */
+.accordion-button:not(.collapsed)::after {
+  /* Thanks to Lucide Icons for the SVG, Reference Here: https://lucide.dev/icons/minus */
+  background-image: url('../images/minus.svg');
+}
+
+/* About author button container styles. */
+.author-website-btn-container {
+  display: inline-block;
+  border-radius: 0.25rem;
+  /* White space of the anchor element letters */
+  letter-spacing: 0.05rem;
+  background-color: var(--light-slate-black);
+  /* Display flex to allow children elements to sit side by each. */
+  display: flex;
+  /* Center the content */
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: relative;
+  gap: 1rem;
+  /* Set button container width. */
+  width: 260px;
+  /* Key properties for the background gradient transition effect */
+  transition: 0.3s ease-in-out;
+  background-size: 200% auto;
+  /* Center the button container in the parent container using margin auto. */
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+.author-website-btn-container:hover {
+  /* Background color fallback if the background image fails to load or isn't supported in a users browser. */
+  background-color: #141414;
+  /* Background gradient when the author button is hover on. */
+  background-image: linear-gradient(
+    to top right,
+    #2b2b2b 0%,
+    #1a1a1a 45%,
+    #131313 100%
+  );
+  /* Move the button to the right within the DOM when hovered with a X translate. */
+  transform: translateX(0.5rem);
+}
+
+/* Set the color of the anchor text to the primary orange. */
+.author-website-btn-container a {
+  color: var(--white);
+  transition: 0.3s ease-in-out;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: var(--heading-font);
+  font-size: 18px;
+}
+
+/* 
+Adjust the anchor text color to the lighter orange from the root variables, it will allow for some distinction on if the button is actually being hovered over. 
+*/
+.author-website-btn-container:hover a {
+  color: var(--primary-color);
+}
+
+/* 
+Use the before pseudo to allow the entire button container to become clickable by setting the height and width proerpties to 100% from the top and left sides through absolute positioning.
+*/
+.author-website-btn-container a:before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+/* Adjust the download button base fills and fill on element hover. */
+
+.author-website-btn-container svg {
+  stroke: var(--white);
+  transition: 0.4s ease-in-out;
+}
+
+.author-website-btn-container:hover svg {
+  stroke: var(--primary-color);
+}
+
+
+/* Start of Carousel Styles */
+
+.carousel-indicators {
+  position: static;
+}
+
+/* Each carousel item can only be a maximum width of 800px. */
+.carousel-item {
+  max-width: 800px;
+  /* Align the item text. */
+  text-align: center;
+}
+
+/* Set the inner contents of the carousel to a double spaced line height, and set a minimum height for the content to 35 vertical height of the viewport. */
+.carousel-inner {
+  line-height: 2;
+  min-height: 35vh;
+}
+
+/* If and indicator of the carousel is currently active, set the background colour to the primary colour from the root styles. */
+.carousel-indicators [data-bs-target].active {
+  background-color: var(--primary-color);
+}
+
+/* End of Carousel Styles */
+
+/* Start of Contact Form Styles */
+
+/* Order book section styles */
+#order-book {
+  background-color: var(--light-slate-black);
+  /* Setting the order-book section container to a max-width of 100% to allow the background coloru to span the entire container. */
+  max-width: 100%;
+}
+
+/* Order book text content styles.  */
+#order-book h2 {
+  color: var(--primary-color);
+}
+
+#order-book p {
+  color: var(--white);
+  /* Max width of the paragraph elements. */
+  max-width: 600px;
+  /* Automatic left and right margins to center the content. */
+  margin: 0 auto 1rem auto;
+}
+
+/* Set the width of the form contents */
+#order-form {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 1.2em 2em;
+}
+
+/* Set a max width and center the order book button. */
+#order-button {
+  max-width: 220px;
+  margin: 3rem auto 0 auto;
+  /* Center the button text. */
+  text-align: center;
+}
+
+/* Overwriting bootstrap form styles of the form-control class. */
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  color: var(--white);
+  /* Form field background colours */
+  background-color: var(--primary-color);
+  background-clip: padding-box;
+  border-radius: 0.25rem;
+  /* Remove border and outline styles from the form inputs. */
+  border: none;
+  outline: none;
+  /* Text letter spacing. */
+  letter-spacing: 0.05rem;
+  /* Adjust the boldness of the form field text content. */
+  font-weight: 500;
+}
+  
+/* Input field placeholder text colour */
+.form-control::-webkit-input-placeholder {
+  color: var(--light-slate-black);
+}
+
+/* Input field placeholder text when in the focused state. */
+.form-control:focus::-webkit-input-placeholder {
+  color: var(--white);
+}
+
+/* When a form field is focues, apply the following styles. */
+.form-control:focus {
+  color: var(--primary-color);
+  border-color: var(--secondary-color);
+  /* Change the background to a transparant background indicating to the user they are about to type into the focused field. */
+  background-color: transparent;
+  /* Remove default outline from bootstrap. */
+  outline: 0;
+  transition: var(--transition);
+  box-shadow: 0 0 0 0.15rem rgba(201, 175, 87, 0.8);
+}
+
+/* Add top and bottom padding to the input rows. */
+.row {
+  padding: 1rem 0;
+}
+
+/* Form wrapper container styles. */
+.form-wrapper {
+  /* 
+  
+  Thanks to Vecteezy for this awesome rocketship SVG graphic! Reference here: https://www.vecteezy.com/vector-art/6467320-black-line-art-illustration-of-rocket-with-big-sun 
+  
+  I edited the SVG in Adobe Illustrator before using it in my project.
+  
+  */
+  background-image: url("../images/rocketship-white-angled.svg");
+  background-size: contain;
+  background-position: right;
+  background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 1200px) {
+
+  /* Remove the wrapper background image when the device width viewport is 1200 pixels wide. */
+  .form-wrapper {
+    background-image: none;
+  }
+
+}
+
+/* About Book & About Author Media Query */
+
+@media screen and (max-width: 1200px) {
+
+  /* Author section background styles. */
+  #author {
+
+    /* Origin Image Source Reference Here: https://marcuwekling.de/image/xs/bilder/seiten/marc-uwe-kling-5e14a8e59f306.jpg */
+    background-image: radial-gradient(circle, rgba(22, 22, 22, 0.7) 0%, rgba(24, 24, 24, 0.95) 100%), 
+    url('../images/marc-uwe-kling-bio.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 0;
+  }
+
+  /* About and Author content container styles. */
+  #about-content-wrapper,
+  #author-content-wrapper {
+    margin: 5rem 0;
+    transition: var(--transition);
+    /* Set the grid containers to a single column. layout. */
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  /* About wrapper white space. */
+  #about-content-wrapper {
+    padding: 2rem 5rem;
+  }
+
+  /* Author container wrapper styles. */
+  #author-content-wrapper {
+    /* Max-width of the container. */
+    max-width: 1000px;
+    /* Background properties */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 3rem 0.5rem;
+    border-radius: 0.25rem;
+  }
+
+
+  /* Author and about content header and body copy styles. */
+
+  #author-content-wrapper h2 {
+    color: var(--primary-color)
+  }
+  
+  #author-content-wrapper h3,
+  #author-content-wrapper p {
+    color: var(--white);
+  }
+
+  #about-content-wrapper p,
+  #author-content-wrapper p  {
+    hyphens: auto;
+    padding: 0 0 1rem 0;
+  }
+
+  /* Esnure correct stacking of elements in the single column layout. */
+  .about-content, 
+  .author-content {
+      grid-area: auto;
+  }
+
+  /* Align the author body copy to the left. */
+  .author-content {
+    text-align: left;
+  }
+
+  /* Set the grid content area layout to occupy the full width of the grid parent containers */
+  .about-content {
+      grid-area: 1 / 1 / 1 / 1;
+  }
+
+  .about-picture {
+      grid-area: 2 / 1 / 2 / 1;
+      margin: 0;
+  }
+
+  /* Center the profile image as it is now in a single column layout. */
+  .about-picture,
+  .profile-picture {
+      grid-area: auto;
+      max-width: 100%;
+      margin: 4rem auto 0 auto;
+  }
+
+  /* Remove the profile picture from the DOM as the image is now a background image of the parent container at 1200 pixels wide. */
+  .profile-picture {
+    display: none;
+  }
+
+  /* Center the featured projects image into the single column layout to create an overlapping layout on smaller screens. */
+  .profile-picture img {
+    opacity: 0.7;
+    max-width: 100%;
+    height: 100%;
+  }
+
+  .author-website-btn-container {
+    background-color: var(--primary-color);
+  }
+
+  /* Adjust the anchor text color to white from the root variables, distinction on if the button is actually being hovered over. */
+  .author-website-btn-container:hover a {
+    color: var(--white);
+  }
+
+  .author-website-btn-container:hover svg {
+    stroke: var(--white);
+  }
+
+}
+
+@media screen and (max-width: 820px) {
+    
+    .author-sub-text {
+        margin: 0 auto;
+        margin-top: 1rem;
+    }
+
+}
+
+/* Apply the following styles when the viewport width reaches 800px. */
+@media screen and (max-width: 800px) {
+
+  /* When the screen reaches 800px width, the about section will overwritten to appear with a background image. */
+  #about {
+    /* Original Image Reference from https://www.lucyda.de/wp-content/uploads/2019/05/qualityland-cover-955x716.jpg  */
+    background-image: radial-gradient(circle, rgba(22, 22, 22, 0.9) 0%, rgba(13, 13, 13, 1) 100%),
+    url("../images/about-qualityland.jpg");
+    /* Background size and positioning properties. */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Section white space. */
+    padding: 100px 2rem;
+    /* Fixed background image, creating a parallax effect when scrolling. */
+    background-attachment: fixed;
+  }
+
+  #about h2 {
+    color: var(--primary-color);
+  }
+
+  /* Overwrite the about content spacing when on smaller screens. */
+  #about-content-wrapper {
+    /* Set a max width of the content container. */
+    max-width: 1000px;
+    border-radius: 0.25rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  #about p {
+    color: var(--white);
+    line-height: 2.2;
+  }
+
+  /* Remove the globe SVG background image when on smaller devices of 800px max width. */
+  .about-wrapper {
+    background-image: none;
+  }
+
+  /* Remove the about-picture from the DOM as it's now a background image for the container. */
+  .about-picture {
+    display: none;
+  }
+
+}
+
+/* Apply the following styles when the viewport width is 768 pixels wide. */
+@media screen and (max-width: 768px) {
+
+  /* White space styles for headings and wrapper containers. */
+
+  #hero h1 {
+      letter-spacing: 0.3rem;
+      line-height: 1.3;
+  }
+
+  .accordion-body p {
+      text-align: center;
+      padding: 0;
+  }
+
+  #about-content-wrapper,
+  #author-content-wrapper {
+    padding: 5rem 0.5rem;
+  }
+
+  .author-sub-text {
+    padding: auto 5rem;
+  }
+
+  #pills-tabContent {
+    padding: 1rem;
+  }
+
+  /* Center the reviews container content with margin auto, apply top and bottom spacing on mobile devices (768px or less). */
+  #book-reviews {
+    margin: 4rem auto;
+  }
+
+}
+
+/* White space for the About and Author sections when the device width is 560px wide. */
+@media screen and (max-width: 560px) {
+
+  #author {
+    padding: 0 0.5rem;
+  }
+
+  #about-content-wrapper
+  #author-content-wrapper {
+    padding: 5rem 2rem;
+  }
+
+}
+
+/* Start of Back to Top Button Styles */
+#back-to-top {
+    border: none;
+    /* Hide the button, it will show up once the corresponding JavaScript window positioning code is executed. */
+    display: none;
+    position: fixed;
+    right: 30px;
+    bottom: 60px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgb(202,175,86);
+    background: radial-gradient(circle, rgba(202,175,86,1) 0%, rgba(233,205,111,1) 100%);
+    color: var(--slate-black);
+    /* Set the z-index to the top of the stack order, to allow the button to be visible anywhere in the document. */
+    z-index: 10;
+    cursor: pointer;
+    /* Set the opacity, transition, and animation properties for keyframe animation */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    animation: fadeIn 0.3s forwards;
+  }
+  
+  /* Change the button colors on hover to indicate to the user the element is clickable. */
+  #back-to-top:hover {
+    transform: scale(1.1);
+    background: rgb(202,175,86);
+    
+  }
+  
+  /* Back to Top Button Keyframes */
+  @keyframes fadeIn {
+    
+    /* Keyframes to control the fade in and fade out of the back to top button. */
+    0% {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* End of Back to Top Button Styles */
+
+/* Start of Footer Styles */
+
+footer {
+  background-color: var(--light-slate-black);
+  /* Top and bottom whitespace of the footer container element */
+  padding: 2rem 0;
+  /* Display flex so all children elements stack as there is also flex-direction set to column. */
+  display: flex;
+  /* Center content in the container on the X and Y axises */
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Rocketship SVG class styles */
+/* Fill properties appear in the colour of the primary colour declared in the root styles. */
+.st0 { 
+  fill-rule: evenodd;
+  clip-rule: evenodd;
+  fill: #CAAF56;}
+
+.st1 {
+  fill: #CAAF56;
+}
+
+/* Footer text colour styles. */
+footer p small {
+  color: var(--primary-color);
+  margin: 0;
+}
+
+/* SVG graphic sizing styles. */
+footer a svg {
+  height: 100px;
+  width: 100px;
+  /* White space from the sVg and paragraph content. */
+  margin-bottom: 1rem;
+}
+
+footer p small,
+footer a svg {
+  transition: 0.6s ease-in-out;
+}
+
+/* Translate the SVG graphic when the parent anchor is hovered. */
+footer a svg:hover {
+  transform: translateY(-0.4rem);
+}
+
+/* Change the fill of the SVG when the parent anchor container is hovered. */
+footer a svg:hover .st0,
+footer a svg:hover .st1 {
+  fill: var(--white);
+}
+
+/* When the anchor container SVG is hovered, the direct sibling paragraph text will turn white. */
+footer a:hover + p small {
+  color: white;
+}

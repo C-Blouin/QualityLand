@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QualityLand | Best-seller by Marc-Uwe Kling</title>
+    <!-- Link to external font-faces -->
+    <!-- Thank you to onlinewebfonts for the font, font reference here: https://www.onlinewebfonts.com/download/b5ed479ddc6f88c0425233a3abb03535 -->
+    <link href="https://db.onlinewebfonts.com/c/b5ed479ddc6f88c0425233a3abb03535?family=Decima%2B+Regular+2"
+        rel="stylesheet">
+    <!-- Linking Bootstrap CDN before custom styles. -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Bootstrap Icons Link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Normalize CSS before the custom styles are rendered. -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- Link to custom styles. -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- Start of Header -->
+    <header id="header-nav">
+        <!-- Start of Primary Header Navigation -->
+        <nav class="navbar navbar-expand-xl navbar-dark" role="navigation" data-bs-theme="dark">
+            <div class="container-fluid">
+                <!-- Start of Hamburger Toggle Button Icon -->
+                <button class="navbar-toggler d-xl-none" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle Navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- End of Hamburger Toggle Button Icon -->
+                <div class="offcanvas offcanvas-end" id="navbarNav">                    
+                    <div class="offcanvas-body justify-content-center">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#about">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#author">Author Biography</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#book-reviews">Reviews</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#order-book">Order Book</a>
+                            </li>
+                        </ul>
+                    </div> <!-- End of .offcanvas-body -->
+                </div> <!-- End of .offcanvas -->
+            </div> <!-- End of .container-fluid -->
+        </nav>
+        <!-- End of Primary Header Navigation -->
+    </header>
+    <!-- End of Header -->
+
+    <!-- Start of Main Content -->
+    <main>
+
+        <!-- Start of Hero Section -->
+        <div id="hero-wrapper">
+            <section id="hero" class="hidden">
+                <h1>QUALITYLAND</h1>
+                <h2>Written By Marc-Uwe Kling</h2>
+                <p>
+                    Explore the satirical and thought-provoking world of QualityLand, a gripping novel that questions the cost of perfection. In a society where AI algorithms know us better than we know ourselves, one man's journey to reclaim his identity leads to unexpected discoveries. Explore QualityLand for yourself!
+                </p>
+                <a href="#about">Read More</a>
+            </section>
+        </div>
+        <!-- End of Hero Section -->
+
+        <!-- Start of About Section (Grid Container) -->
+        <div class="about-wrapper">
+            <!-- Start of About Book Section -->
+            <section id="about">
+                <div id="about-content-wrapper">
+                    <!-- Start of About Book Image Content -->
+                    <figure class="about-picture hidden">
+                        <!-- Original Image Reference from https://www.lucyda.de/wp-content/uploads/2019/05/qualityland-cover-955x716.jpg -->
+                        <img src="images/about-qualityland.jpg" alt="QualityLand Book Photo" title="QualityLand Book Photo" />
+                    </figure>
+                    <!-- End of About Book Image Content -->
+                    <!-- Start of Primary About Content -->
+                    <article class="about-content">
+                        <h2>About the Book</h2>
+                        <p class="about-sub-text">
+                            "QualityLand" is a satirical science fiction novel that depicts a futuristic dystopian society ruled by
+                            consumerism, technology, and corporate overlords. The foundation of Qualityland utilizes a foolproof
+                            universal ranking algorithm system developed by the most successful company in the world, TheShop, to
+                            determine opportunities individuals receive based on their quality scores, value, and contributions. The
+                            story follows Peter Jobless, an ordinary citizen who unwittingly becomes a figure of resistance in a world
+                            where individuals are treated based solely on their quality scorings. Furthermore, Peter embarks on a
+                            journey that challenges the dehumanizing forces of this hyper-connected society, raising questions about
+                            identity, privacy, and the pervasive influence of technology and consumerism in our digital age. The book
+                            employs dark humour and satire to critique prominent societal issues while providing insightful thoughts
+                            about our digital behaviours.
+                        </p>
+                    </article>
+                    <!-- End of Primary About Content -->
+                </div>
+            </section> 
+            <!-- End of About Book Section -->
+        </div>
+        <!-- End of About Section (Grid Container) -->
+        
+        <!-- Start of Details Section -->
+        <section id="details">
+            <!-- Start of Book Details Article -->
+            <article id="book-details">
+                <h2>Book Details</h2>
+                <ul class="nav nav-pills justify-content-center" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <!-- Person Icon from https://icons.getbootstrap.com/icons/person/ -->
+                        <button class="nav-link active" id="pills-author-info-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-author-info" type="button" role="tab" aria-controls="pills-author-info"
+                            aria-selected="true"> <i class="bi bi-person"></i> Author Info
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <!-- Book Icon from https://icons.getbootstrap.com/icons/book/ -->
+                        <button class="nav-link d-flex" id="pills-genre-tab" data-bs-toggle="pill" data-bs-target="#pills-genre" type="button" role="tab" aria-controls="pills-genre" aria-selected="true"><i class="bi bi-book"></i> Genres
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <!-- Award Icon from https://icons.getbootstrap.com/icons/award/ -->
+                        <button class="nav-link" id="pills-awards-tab" data-bs-toggle="pill" data-bs-target="#pills-awards"
+                            type="button" role="tab" aria-controls="pills-awards" aria-selected="true"><i class="bi bi-award"></i> Awards
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <!-- Pencil Icon from https://icons.getbootstrap.com/icons/pencil-square/ -->
+                        <button class="nav-link" id="pills-details-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-details" type="button" role="tab"
+                            aria-controls="pills-details" aria-selected="true"><i class="bi bi-pencil-square"></i> More Info
+                        </button>
+                    </li>
+                </ul> <!-- End of Nav Pills -->
+            </article>
+            <!-- End of Book Details Article -->
+
+            <!-- Start of Book Details Tab Content -->
+            <div class="tab-content" id="pills-tabContent">
+                <!-- Since there are no headings in my tab panels to support my content, I'm using div elements. -->
+                <div class="tab-pane fade show active" id="pills-author-info" role="tabpanel" aria-labelledby="pills-author-info-tab"
+                    tabindex="0">
+                    <p>QualityLand, written by <strong>Marc-Uwe Kling</strong>, a German author renowned for his <strong>satirical</strong> and <strong>humorous</strong> works
+                        and witty approach, addresses relatable themes due to his background in psychology and comedy.</p>
+                    <a href="#author">More About Marc-Uwe Kling</a>
+                </div>
+                <!-- End of First Details Panel Content -->
+
+                <div class="tab-pane fade" id="pills-genre" role="tabpanel" aria-labelledby="pills-genre-tab"
+                    tabindex="0">
+                    <p>QualityLand is a scathing critique of our reliance on technology and a <strong>must-read</strong> for those who enjoy incisive, <strong>genre-defying narratives</strong> that hold a mirror up to the world we live in. It is a thought-provoking masterpiece that seamlessly blends elements of <strong>satirical science fiction</strong>, <strong>dystopian fiction</strong>, and <strong>social satire</strong>, while exploring the absurdities of our modern-day obsession with automation and social media. </p>
+                    <ul>
+                        <li>Satirical Science Fiction</li>
+                        <li>Dystopian Fiction</li>
+                        <li>Social Satire</li>
+                    </ul>
+                </div>
+                <!-- End of Second Details Panel Content -->
+
+                <div class="tab-pane fade" id="pills-awards" role="tabpanel" aria-labelledby="pills-awards-tab"
+                    tabindex="0">
+                    <p>
+                        "QualityLand" has received well-deserved recognition and accolades, including a <strong>Science Fiction and Fantasy Rosetta Award Nomination for Best SFF Translated Work</strong>, highlighting its international appeal, and the esteemed <strong>Deutscher Science-Fiction-Preis</strong>. These two awards highlight QualityLand as a remarkable milestone in the science fiction genre.
+                    </p>
+                    <ul>
+                        <li><strong>2021</strong> Science Fiction and Fantasy Rosetta Award Nominee for Best SFF translated work</li>
+                        <li><strong>2018</strong> Deutscher Science-Fiction-Preis</li>
+                    </ul>
+                </div>
+                <!-- End of Third Details Panel Content -->
+
+                <div class="tab-pane fade" id="pills-details" role="tabpanel"
+                    aria-labelledby="pills-details-tab" tabindex="0">
+                    <p>
+                        <strong><q>QualityLand</q></strong> has gained international recognition and has been adapted into various formats,
+                        including <strong>theatre productions</strong> and <strong>radio shows</strong>. It has become a <strong>bestseller</strong> in multiple countries,
+                        resonating with a wide readership.
+                    </p>
+                    <ul>
+                        <li>Approximately 368 pages</li>
+                        <li><em>German</em> edition published on April 1, 2017</li>
+                        <li><em>English</em> edition published in 2019</li>
+                    </ul>
+                </div>
+                <!-- End of Fourth Details Panel Content -->
+            </div>
+            <!-- End of Book Details Tab Content -->
+
+        </section>
+        <!-- End of Details Section -->
+
+        <!-- Start of Themes Section -->
+        <section id="themes">
+            <h2>Themes of QualityLand</h2>
+            <!-- Start of Theme Cards Container -->
+            <div id="book-theme-cards">
+                
+                <article>
+                    <h3>Consumerism & Branding</h3>
+                    <!-- Thanks to Boostrap Icons for the Basket Icon: https://icons.getbootstrap.com/icons/basket3/ -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor" class="bi bi-basket3" viewBox="0 0 16 16">
+                        <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM3.394 15l-1.48-6h-.97l1.525 6.426a.75.75 0 0 0 .729.574h9.606a.75.75 0 0 0 .73-.574L15.056 9h-.972l-1.479 6h-9.21z"/>
+                      </svg>
+                    <p>The book touches on the influences consumerism and branding have on humanity. It raises questions regarding our identities and how the products we buy and brands we align with define an individual's status. This theme is relevant to our digital personas through online advertisements, e-commerce, and the influences of social media outlets.</p>
+                </article>
+                <!-- End of Theme Card #1 -->
+
+                <article>
+                    <h3>Technological Consequences</h3>
+                    <!-- Thanks to Boostrap Icons for the Laptop Icon:  https://icons.getbootstrap.com/icons/laptop/ -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor" class="bi bi-laptop" viewBox="0 0 16 16">
+                        <path d="M13.5 3a.5.5 0 0 1 .5.5V11H2V3.5a.5.5 0 0 1 .5-.5h11zm-11-1A1.5 1.5 0 0 0 1 3.5V12h14V3.5A1.5 1.5 0 0 0 13.5 2h-11zM0 12.5h16a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5z"/>
+                      </svg>
+                    <p>QualityLand sheds light on the consequences of moving forward in the digital age alongside our technological dependencies, highlighting the impacts of Artificial Intelligence and loss of privacy. Further, the book serves as a cautionary tale of the significant issues technology has brought to the current digital age.</p>
+                </article>
+                <!-- End of Theme Card #2 -->
+
+                <article>
+                    <h3>Inequalities</h3>
+                    <!-- Thanks to Boostrap Icons for the Plus/Minus Icon: https://icons.getbootstrap.com/icons/plus-slash-minus/ -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor" class="bi bi-plus-slash-minus" viewBox="0 0 16 16">
+                        <path d="m1.854 14.854 13-13a.5.5 0 0 0-.708-.708l-13 13a.5.5 0 0 0 .708.708ZM4 1a.5.5 0 0 1 .5.5v2h2a.5.5 0 0 1 0 1h-2v2a.5.5 0 0 1-1 0v-2h-2a.5.5 0 0 1 0-1h2v-2A.5.5 0 0 1 4 1Zm5 11a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5A.5.5 0 0 1 9 12Z"/>
+                      </svg>
+                    <p>QualityLand portrays inequalities in the digital world. The book depicts a society where individuals' Quality scores determine their treatment and status. Further, it creates relatable concerns to our digital norms and how an individual's social or economic status determines their value and offering to the world.</p>
+                </article>
+                <!-- End of Theme Card #3 -->
+
+                <article>
+                    <h3>Identity and Self-Reflection</h3>
+                    <!-- Thanks to Boostrap Icons for the Person Icon: https://icons.getbootstrap.com/icons/person/ -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">
+                        <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                        <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+                      </svg>
+                    <p>The story promotes the theme of individuals in search of authenticity. It does so through the character of Peter Jobless, revealing self-discovery themes of a world dominated by digital personas and AI. The book provides readers an opportunity for self-reflection on personal values and to understand who they are beyond their digital profiles.</p>
+                </article>
+                <!-- End of Theme Card #4 -->
+            </div>
+            <!-- End of Theme Cards Container -->
+        </section>
+        <!-- End of Themes Section -->
+
+        <!-- Start of Author Section (Grid Container) -->
+        <section id="author">
+            <div id="author-content-wrapper">
+                <!-- Start of Primary Author Content -->
+                <article class="author-content">
+                    <h3 class="hidden">Meet the Author</h3>
+                    <h2 class="hidden">Marc-Uwe Kling</h2>
+                    <p class="author-sub-text">
+                        Marc-Uwe Kling is a German bestselling author known for his satirical and humorous works. Born on July 31, 1982, in Stuttgart, Germany, he is a multi-talented artist with a unique ability to blend sharp humour with a witty approach resonating with many individuals. Furthermore, his writing touches on problematic social issues, critiquing topics such as consumerism and the impact of technological advancements on the lives of individuals. He has established himself as an impactful voice in the literary world through his famous work QualityLand and has earned valuable awards for his contributions.
+                    </p>
+                    <div class="author-website-btn-container">
+                        <a href="https://marcuwekling.de/en/" class="author-btn" title="Marc-Uwe Klings Personal Website" target="_blank">Kling's Website</a>
+                        <!-- Thank you to Lucidie Icons for this SVG, here is the attribution link: https://lucide.dev/icons/globe -->
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-globe"
+                        >
+                          <circle cx="12" cy="12" r="10" />
+                          <line x1="2" x2="22" y1="12" y2="12" />
+                          <path
+                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                          />
+                        </svg>
+                      </div>
+                </article>
+                <!-- End of Primary Author Content -->
+
+                <!-- Start of Profile Image Content -->
+                <figure class="profile-picture hidden">
+                    <!-- Original Image Reference Here: https://marcuwekling.de/image/xs/bilder/seiten/marc-uwe-kling-5e14a8e59f306.jpg -->
+                    <img src="images/marc-uwe-kling-bio.jpg" alt="Photo of Marc-Uwe Kling" title="Photo of Marc-Uwe Kling" />
+                </figure>
+                <!-- End of Profile Image Content -->
+            </div>    
+        </section>
+        <!-- End of Author Section --> 
+
+
+        <!-- Start of Secondary Author Content - More about the author Bootstrap Accordion -->
+        <section id="more-about-author">
+            <!-- Start of About Author Accordion -->
+            <div class="accordion accordion-flush" id="author-accordion">
+                <h2>More About Marc-Uwe Kling</h2>
+
+                <!-- Start of About Author Accordion Item #1 -->
+                <article class="accordion-item">
+
+                    <!-- Item #1 Header Contents -->
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Education
+                        </button>
+                    </h2>
+                    <!-- End of Item #1 Header Contents -->
+
+                    <!-- Item #1 Body Content -->
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="author-accordion">
+                        <div class="accordion-body">
+                        <p>Kling studied philosophy and theatre at <strong>Humboldt University</strong> in <strong>Berlin</strong>, providing a foundation for creating <strong>memorable experiences</strong> through humour and satire.</p>
+                        </div>
+                    </div>
+                    <!-- End of Item #1 Body Contents -->
+                </article>
+                <!-- End of About Author Accordion Item #1 -->
+
+                <!-- Start of About Author Accordion Item #2 -->
+                <article class="accordion-item">
+
+                    <!-- Item #2 Header Contents -->
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Writing Style
+                        </button>
+                    </h2>
+                    <!-- End of Item #2 Header Contents -->
+
+                    <!-- Item #2 Body Content -->
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="author-accordion">
+                        <div class="accordion-body">
+                        <p>Marc-Uwe Kling's <strong>writing style</strong> focused on a witty and clever approach, with <strong>well-thought-out</strong> wordplay accompanying a sharp tone. Kling demonstrates exposure to <strong>absurd</strong> and <strong>harsh realities</strong> of modern life portrayed with a touch of satire, expressing various aspects of life while creating relatable experiences.</p>
+                        </div>
+                    </div>
+                    <!-- End of Item #2 Body Contents -->
+                </article>
+                <!-- End of About Author Accordion Item #2 -->
+
+                <!-- Start of About Author Accordion Item #3 -->
+                <article class="accordion-item">
+
+                    <!-- Item #3 Header Contents -->
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Acclaimed Work
+                        </button>
+                    </h2>
+                    <!-- End of Item #3 Header Contents -->
+
+                    <!-- Item #3 Body Content -->
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="author-accordion">
+                        <div class="accordion-body">
+                        <p>Renowned throughout the literary world for his acclaimed work <strong>QualityLand</strong> is a <strong>science fiction novel</strong> set in a futuristic society where technology and algorithms determine <strong>various aspects</strong> of an individual's life. <strong>QualityLand</strong> explores themes of consumerism and technology through the lens of <strong>TheShop</strong>, the largest corporation, providing insightful development impacts moving into the inevitable technological age.</p>
+                        </div>
+                    </div>
+                    <!-- End of Item #3 Body Contents -->
+                </article>
+                <!-- End of About Author Accordion Item #3 -->
+
+                <!-- Start of About Author Accordion Item #4 -->
+                <article class="accordion-item">
+
+                    <!-- Item #4 Header Contents -->
+                    <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        Achievements
+                        </button>
+                    </h2>
+                    <!-- End of Item #4 Header Contents -->
+
+                    <!-- Item #4 Body Content -->
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="author-accordion">
+                        <div class="accordion-body">
+                            <p>
+                                Since <strong>Marc-Uwe Kling</strong> is known for his extraordinary storytelling talent through satire, he presents himself on the radio or performing live shows, which led to Kling earning the <strong>Kleinkunstpreis Baden-Württemberg (Cabaret & Comedy)</strong> and <strong>Salzburger Stier (Radio Comedy)</strong> awards.
+                            </p>
+                            <ul>                               
+                                <li>
+                                    <strong>Best-seller Author</strong>: Several of Kling's books, including "Qualityland" and "The Kangaroo Chronicles," have become bestsellers in Germany alongside other countries. His unique writing style resonates with readers from all over the world.
+                                </li>
+                                <li>
+                                    <strong>German Science Fiction Award</strong>: Kling received this award for his well-recognized novel QualityLand, which touches on key themes of consumerism, automation, and artificial intelligence throughout a futuristic dystopian world.
+                                </li>
+                                <li>
+                                    <strong>Erich Kästner Prize for Literature</strong>: Kling was awarded the Erich Kästner Prize, named after the famous German author Erich Kästner, for his contributions to contemporary literature.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End of Item #4 Body Contents -->
+                </article>
+                <!-- End of About Author Accordion Item #4 -->
+            </div>
+            <!-- End of About Author Accordion -->
+        </section>
+        <!-- End of Secondary Author Content -->
+
+        <!-- Start of Reviews Section -->
+        <section id="book-reviews" class="carousel carousel-fade carousel-dark" data-bs-ride="carousel">
+            <h2 class="hidden">QualityLand Reviews</h2>
+            <!-- Carousel Indicators, data-bs-target matches the containers ID, in this case it's the book-reviews. -->
+              <div class="carousel-indicators hidden">
+                <!-- First Review slide is active by default. -->
+                <button type="button" data-bs-target="#book-reviews" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#book-reviews" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#book-reviews" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#book-reviews" data-bs-slide-to="3" aria-label="Slide 3"></button>
+              </div>
+
+              <!-- Start of Carousel Inner Content Container -->
+              <div class="carousel-inner hidden">
+
+                  <!-- Start of Review Slide #1 -->
+                  <article class="carousel-item active">
+                    <blockquote>
+                        The times we live in demand a satire as sharp and unrelenting as QualityLand. The funniest parts will make you cringe. But rather than merely beat the reader over the head with doom and gloom, this novel goes further, showing the value of endurance and even hope in an age of emptiness.
+                    </blockquote>
+                    <cite>— ROBERT REPINO, AUTHOR OF D’ARC AND MORT(E)</cite>
+                  </article>
+                  <!-- End of Review Slide #1 -->
+
+
+                  <!-- Start of Review Slide #2 -->
+                  <article class="carousel-item">
+                    <blockquote>
+                        Kling’s sharp observations target the economy, the law, xenophobia, relationships, security, and government, sparing few and exposing with delightful brutality how close QualityLand is to reality.
+                    </blockquote>
+                    <cite>— BOOKLIST, STARRED REVIEW!</cite>
+                  </article>
+                  <!-- End of Review Slide #2 -->
+
+                  <!-- Start of Review Slide #3 -->
+                  <article class="carousel-item">
+                    <blockquote>
+                        Eerily prescient and peppered with near-future projections (including the cryogenic resurrection of Jennifer Aniston), QualityLand reads like the best Black Mirror episode as written by Kurt Vonnegut. Kling delivers scythe-sharp satire, steering us through a hysterical dystopian adventure of technological determinism, all while skewering consumer culture, politics, free will, and making me rethink my relationship with my Roomba. Witty, wise, and terrifyingly funny, QualityLand is a genius gem and an absolute must read. I laughed my phone off.
+                    </blockquote>
+                    <cite>— KIRA JANE BUXTON, AUTHOR OF HOLLOW KINGDOM</cite>
+                  </article>
+                    <!-- End of Review Slide #3 -->
+
+                    <!-- Start of Review Slide #4 -->
+                  <article class="carousel-item">
+                    <blockquote>
+                        <!-- How much you enjoy this is in direct proportion to how much trouble you think we’re all in. Sleep tight. -->
+                        Satirical, but in places also dark criticism of capitalism and data usage. It's refreshing, engaging and reading feels like watching a show. It has bits and pieces of text between the chapters that address and guide the reader, making it as close to as interactive story as possible for the medium.
+                    </blockquote>
+                    <cite>— MILORAD VLAOVIC</cite>
+                  </article>
+                    <!-- End of Review Slide #4 -->
+              </div>
+              <!-- End of Carousel Inner Content Container -->
+
+          </section>
+        <!-- End of Reviews Section -->
+
+        <!-- Start of Order Book Section -->
+        <section id="order-book">
+            <div class="form-wrapper">
+                <h2>Order QualityLand</h2>
+                <p>
+                    Order a Copy of QualityLand Today – The Must-Read Science Fiction Dystopian Satire!
+                </p>
+                <!-- Start of Form Contents - Using bootstrap here for the form layout. -->
+                <form id="order-form">
+                    <div class="row">
+                    <input type="text" class="form-control" id="fullname" placeholder="Full Name" maxlength="50" required>
+                    </div>
+                    <div class="row">
+                    <input type="tel" class="form-control" id="phone" placeholder="Phone Number" maxlength="15" required>
+                    </div>
+                    <div class="row">
+                    <input type="email" class="form-control" id="email" placeholder="Email" maxlength="60" required>
+                    </div>
+                    <div class="row">
+                    <textarea class="form-control" id="message" rows="5"
+                        placeholder="Enter any special requests here!"></textarea>
+                    </div>
+                    <button type="submit" title="Order QualityLand" id="order-button" class="btn">ORDER BOOK</button>
+                </form>
+            </div>
+            <!-- End of Form Contents -->
+        </section>
+    </main>
+    <!-- End of Main Content -->
+
+    <!-- Start of Footer -->
+    <footer>
+        <!-- Rocketship SVG anchor wrapper that will link the user back to the hero page. -->
+        <a href="#hero">
+            <!-- Thanks to Vecteezy for this awesome rocketship SVG graphic! Reference here: https://www.vecteezy.com/vector-art/6467320-black-line-art-illustration-of-rocket-with-big-sun -->
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" 
+	 viewBox="0 0 488.5172119 606.1306152" style="enable-background:new 0 0 488.5172119 606.1306152;" xml:space="preserve">
+                <g>
+                    <path class="st0" d="M243.3192749,102.5974121c-1.8049316,0.0001984-3.5253296,0.743187-4.7574005,2.0717316
+                        c-1.0020599,1.0762558-24.7472839,26.810318-43.7616577,66.6139832
+                        c-10.5093079,21.9810333-17.4463196,63.263031-20.7420349,96.7320099
+                        c-1.2979889,13.0124817,1.1101379,15.3077087-9.6406555,33.3312378l-21.602005,36.2153015
+                        c-5.000824,7.6936035-5.8021851,10.8532715-6.8199615,22.6882324l-3.3853455,62.9103394
+                        c-0.1852264,3.6335449,2.6101685,6.7296448,6.2437134,6.9148865c2.5213013,0.1284485,4.7834015-1.1785889,5.9941559-3.2047119
+                        l15.1785126-23.4185486c1.7552338-3.9432373,4.8815002-7.2008057,9.2685547-9.8280334
+                        c8.3559113-5.004303,14.9450378-0.8814087,19.7754822,5.8526001c6.1365204,8.5558472,10.5761261,23.2892151,16.8756409,33.9405518
+                        c6.5625153,10.2252197,18.819458,8.9668579,33.5241699,8.9668579h4.7883606h4.7882843
+                        c14.7044373,0,26.9617004,1.2583618,33.5241699-8.9668579c6.2994385-10.6513367,10.7389221-25.3847046,16.8757019-33.9405518
+                        c4.8301697-6.7340088,11.4194946-10.8569031,19.7754822-5.8526001c4.3869324,2.6272278,7.5131836,5.8847961,9.2683411,9.8280334
+                        l15.1786499,23.4185486c1.2107544,2.026123,3.4726562,3.3331604,5.9942322,3.2047119
+                        c3.6334839-0.1852417,6.428833-3.2813416,6.2437134-6.9148865l-3.3854065-62.9103394
+                        c-1.0178223-11.8349609-1.8191833-14.9946289-6.8200378-22.6882324l-21.6021423-36.2153015
+                        c-10.7506409-18.0235291-8.3426514-20.3187561-9.6405029-33.3312378
+                        c-3.2957458-33.4689789-10.2327271-74.7509766-20.7421875-96.7320099
+                        c-19.0143738-39.8036652-42.7594604-65.5377274-43.7616577-66.6139832
+                        c-1.2318573-1.3285446-2.9524689-2.0715332-4.7572479-2.0717316c-0.3164368,0-0.6300964,0.0232162-0.9393921,0.0682907
+                        C243.9494934,102.6206284,243.635498,102.5974121,243.3192749,102.5974121L243.3192749,102.5974121z M244.2588043,429.5066223
+                        l-21.8047333-0.0004272c-2.2944031-0.0022888-4.3344421-1.0421143-5.3225098-2.7094421
+                        c-1.5916138-2.6915283-3.1411285-5.4675903-4.6449738-8.320282c-8.0439453-16.0014038,1.9338531-15.1344604,7.0034027-14.9693909
+                        h24.7688141h24.7686615c5.0694885-0.1650696,15.0472717-1.0320129,7.00354,14.9693909
+                        c-1.5038452,2.8526917-3.0533752,5.6287537-4.6451721,8.320282c-0.9880676,1.6673279-3.0280457,2.7071533-5.3224487,2.7094421
+                        L244.2588043,429.5066223L244.2588043,429.5066223z M244.2588043,390.5104065l-25.0990295,0.0001526
+                        c-22.0004425,0.0003052-22.4702454-11.0410767-25.2401581-19.1838684
+                        c-3.678894-13.1767273-6.2680206-26.6116943-7.7298889-40.1588745c-0.9048462-8.4082642-1.3643951-16.8676147-1.3638458-25.1456909
+                        c-0.0005493-23.3727722,4.9622803-77.9533234,14.7505341-111.1446228
+                        c2.2063599-8.2767487,5.155838-14.2933044,24.5375671-14.2933044h20.1448212h20.1446075
+                        c19.3819275,0,22.3313904,6.0165558,24.5377502,14.2933044c9.7879333,33.1912994,14.7507629,87.7718506,14.7503357,111.1446228
+                        c0.0004272,8.2780762-0.4590454,16.7374268-1.3636169,25.1456909c-1.4618835,13.5471802-4.0509949,26.9821472-7.7298889,40.1588745
+                        c-2.7701416,8.1427917-3.2399902,19.1841736-25.2401733,19.1838684L244.2588043,390.5104065L244.2588043,390.5104065z
+                        M244.2588043,167.585495h-16.5115509c-19.1139679,0-10.8877869-10.2382965-8.263031-14.6731415
+                        c4.8924255-8.1051941,9.6945038-15.1773682,13.9245911-21.0069427c1.5725403-1.8933868,5.7397003-6.2822113,10.8499908-5.958374
+                        c5.1100769-0.3238373,9.2773743,4.0649872,10.8497772,5.958374c4.2302246,5.8295746,9.0322266,12.9017487,13.9246521,21.0069427
+                        c2.6246948,4.434845,10.8507996,14.6731415-8.2631836,14.6731415H244.2588043L244.2588043,167.585495z M314.9628296,334.8899231
+                        c-0.9093323,6.7413025-2.1972656,14.834137-3.9944458,23.5421448c-3.2767944,15.8774109,3.9206543,18.9750977,6.0806885,19.6521606
+                        l11.0964966,3.4487305l-0.0007324,0.0025635c1.4254761,0.4373169,2.7112427,1.3583374,3.5869751,2.7065735l3.8132935,5.8834534
+                        c2.5890503,2.869873,5.3407898,3.2077637,5.0949402-5.4809875l-1.3130493-24.3998413
+                        c-0.5835266-6.6509399-3.1340027-13.2901306-6.8315125-19.1179504l-5.0194397-8.4151001
+                        C325.7096252,328.7348022,317.581604,315.4685669,314.9628296,334.8899231L314.9628296,334.8899231z M173.5546417,334.8899231
+                        c0.9091797,6.7413025,2.1973877,14.834137,3.9945831,23.5421448c3.2767792,15.8774109-3.92099,18.9750977-6.0807037,19.6521606
+                        l-11.0966339,3.4487305l0.000885,0.0025635c-1.4254913,0.4373169-2.7114716,1.3583374-3.5872498,2.7065735l-3.8131714,5.8834534
+                        c-2.5889893,2.869873-5.3407745,3.2077637-5.0949554-5.4809875l1.3132019-24.3998413
+                        c0.583313-6.6509399,3.1338806-13.2901306,6.8312988-19.1179504l5.019516-8.4151001
+                        C162.8079224,328.7348022,170.9359131,315.4685669,173.5546417,334.8899231L173.5546417,334.8899231z"/>
+                    <path class="st1" d="M244.2588043,219.0031128c12.3106842,0,23.457016,4.9906006,31.5253448,13.058609
+                        c8.0680542,8.0681,13.0585938,19.2146149,13.0585938,31.5253448c0,12.310791-4.9905396,23.4571533-13.0585938,31.5253296
+                        c-8.0683289,8.0680847-19.2146606,13.0586548-31.5253448,13.0586548c-12.3108521,0-23.4573822-4.9905701-31.5253601-13.0586548
+                        c-8.0680542-8.0681763-13.0586548-19.2145386-13.0586548-31.5253296c0-12.31073,4.9906006-23.4572449,13.0586548-31.5253448
+                        C220.8014221,223.9937134,231.9479523,219.0031128,244.2588043,219.0031128L244.2588043,219.0031128z M266.4439697,241.4017639
+                        c-5.6770325-5.677002-13.5209808-9.1888123-22.1851654-9.1888123c-8.6644135,0-16.5082245,3.5118103-22.1853943,9.1888123
+                        c-5.6769562,5.6771088-9.1887054,13.5210266-9.1887054,22.1853027c0,8.6641846,3.5117493,16.5081787,9.1887054,22.1851807
+                        c5.6771698,5.6771545,13.5209808,9.1888428,22.1853943,9.1888428c8.6641846,0,16.5081329-3.5116882,22.1851654-9.1888428
+                        c5.6771851-5.677002,9.1887207-13.5209961,9.1887207-22.1851807
+                        C275.6326904,254.9227905,272.1211548,247.0788727,266.4439697,241.4017639L266.4439697,241.4017639z"/>
+                    <path class="st0" d="M244.2609711,325.2138367c-3.5936279,0-6.5026398,2.9089661-6.5026398,6.5026245
+                        c0,3.5843506,2.9090118,6.4932556,6.4980164,6.4980469c3.5891418-0.0046082,6.4980316-2.9135437,6.5025787-6.502655
+                        C250.7543793,328.1226807,247.8454895,325.2136841,244.2609711,325.2138367L244.2609711,325.2138367z"/>
+                    <path class="st0" d="M217.0151978,325.2138367c-3.5936279,0-6.5025787,2.9089661-6.5025787,6.5026245
+                        c0,3.5843506,2.9089508,6.4932556,6.4980316,6.4980469c3.5890045-0.0046082,6.4980316-2.9135437,6.5025787-6.502655
+                        C223.5086823,328.1226807,220.5996552,325.2136841,217.0151978,325.2138367L217.0151978,325.2138367z"/>
+                    <path class="st0" d="M271.5068665,325.2138367c-3.593689,0-6.5025635,2.9089661-6.5025635,6.5026245
+                        c0,3.5843506,2.9088745,6.4932556,6.4979553,6.4980469c3.5891418-0.0046082,6.4980164-2.9135437,6.5027161-6.502655
+                        C278.0002747,328.1226807,275.0914001,325.2136841,271.5068665,325.2138367L271.5068665,325.2138367z"/>
+                    <path class="st1" d="M231.7527771,537.9492188c-6.0574951-7.6608276-13.8867035-19.0255737-17.9100037-30.8310242
+                        c-4.4997559-13.2033691-4.4403534-26.8896179,6.7558746-37.3948059c0.6300049-0.591217,1.3770752-1.2295227,2.2457275-1.9162292
+                        c3.2310181-2.5545654,6.6450043-4.4195557,10.1788177-5.7007751c8.0581512-2.9220581,14.4130554-2.9220581,22.4711304,0
+                        c3.5335388,1.2812195,6.9476013,3.1462097,10.178894,5.7007751c0.8686523,0.6867065,1.615509,1.3250122,2.2457275,1.9162292
+                        c11.1966248,10.5053406,11.2554321,24.1911011,6.7557373,37.3948059
+                        c-4.0231628,11.8050232-11.8524475,23.1701965-17.9100037,30.8310242
+                        C244.6002197,553.456665,241.2759857,550.074585,231.7527771,537.9492188L231.7527771,537.9492188z M251.4381714,523.0774536
+                        c4.138504-5.9489136,8.3143616-13.0462036,10.7489014-20.1906128c2.9659729-8.7029419,3.2069092-17.461792-3.298645-23.5657043
+                        c-0.5002136-0.4692993-0.9578552-0.8692932-1.3685913-1.1938782c-2.0485229-1.6197205-4.235199-2.8101501-6.5150146-3.6367188
+                        c-4.8566437-1.7604675-8.6356049-1.7604675-13.4921265,0c-2.279953,0.8265686-4.4665527,2.0169983-6.5151367,3.6367188
+                        c-0.4105225,0.324585-0.8681793,0.7245789-1.3683929,1.1938782c-6.5054932,6.1036072-6.2647552,14.8627625-3.2989044,23.5657043
+                        c2.4809723,7.2799683,6.769989,14.5111084,10.9847412,20.5281372
+                        C241.4260864,528.8428955,245.3764038,531.7507324,251.4381714,523.0774536L251.4381714,523.0774536z"/>
+                    <path class="st0" d="M241.1535797,49.5682907c-4.0146179-0.0004082-7.2708282-3.2566185-7.2708282-7.2714996V7.2711596
+                        C233.8827515,3.2562783,237.1389618,0,241.1537781,0c4.0150909,0,7.271225,3.2562783,7.271225,7.2711596v35.025631
+                        c0,4.0148811-3.256134,7.2710915-7.271225,7.2710915L241.1535797,49.5682907L241.1535797,49.5682907z"/>
+                    <path class="st0" d="M345.5694275,283.8126526c-4.0113525-0.0054932-7.260376-3.2602234-7.260376-7.2714233
+                        c0-1.5205688,0.4773254-3.0040894,1.3634949-4.2388916c14.2194519-19.887146,21.8643494-43.7379303,21.8643494-68.190094
+                        c0-64.7521667-52.512085-117.2637634-117.2637787-117.2637634c-64.7521667,0-117.264267,52.5115967-117.264267,117.2637634
+                        c0,24.4521637,7.6449585,48.302948,21.8609619,68.1884766c1.0830536,1.3044128,1.6732941,2.9447327,1.6732941,4.6368103
+                        c0,4.0148621-3.2563477,7.2711487-7.271225,7.2711487c-2.5138397,0-4.8521729-1.2994995-6.1776581-3.4353638
+                        c-15.982132-22.358429-24.5911026-49.1833954-24.5911026-76.6678619c0-72.7822723,59.0241928-131.806015,131.8065796-131.806015
+                        c72.7819366,0,131.806015,59.0237427,131.806015,131.806015c0,27.4844666-8.6089172,54.309433-24.5878601,76.6608124
+                        c-1.3677063,1.913208-3.5708923,3.0461121-5.9162903,3.0461121c-0.0136414,0-0.0293274,0-0.0426331,0L345.5694275,283.8126526
+                        L345.5694275,283.8126526z"/>
+                    <path class="st0" d="M160.6312256,72.8073273c-0.0014954-0.0002747-0.0052338-0.0002747-0.0067902-0.0002747
+                        c-2.5972748,0-4.9994965-1.3867188-6.2972107-3.636055l-17.5093842-30.3285904
+                        c-0.6220703-1.0944557-0.9498444-2.3335838-0.9498444-3.5932159c0-4.0149498,3.2562714-7.2710915,7.2713318-7.2710915
+                        c2.5797882,0,4.9684906,1.3686638,6.2725983,3.59342l17.4947815,30.3287258
+                        c0.6377563,1.103756,0.9742889,2.359787,0.9742889,3.635643c0,4.0124435-3.2515869,7.2674942-7.2640228,7.2711639
+                        L160.6312256,72.8073273L160.6312256,72.8073273z"/>
+                    <path class="st0" d="M102.5043106,133.202713c-0.0086594,0-0.0193863,0-0.0289917,0
+                        c-1.26577,0-2.5105743-0.3332672-3.6061096-0.9668884l-30.3287277-17.5093842
+                        c-2.251442-1.2983932-3.6384354-3.7014999-3.6384354-6.3008041c0-4.0168533,3.2575378-7.274353,7.2744522-7.274353
+                        c1.2761688,0,2.5309143,0.3356476,3.6358871,0.9735413l30.3358917,17.5093918
+                        c2.2482452,1.2992783,3.6347656,3.6996002,3.6347656,6.2967987c0,4.0148773-3.256279,7.271225-7.2711639,7.271225
+                        L102.5043106,133.202713L102.5043106,133.202713z"/>
+                    <path class="st0" d="M82.3777618,214.568222H47.3517952c-4.0145454-0.0004425-7.2708206-3.2567444-7.2708206-7.271637
+                        c0-4.0148773,3.2562752-7.2711182,7.2711563-7.2711182l35.025631,0.000473
+                        c4.015358-0.000473,7.271637,3.2557678,7.271637,7.2706451c0,4.0148926-3.256279,7.2711945-7.2711945,7.2711945
+                        L82.3777618,214.568222L82.3777618,214.568222z"/>
+                    <path class="st0" d="M441.1941223,208.3440704h-35.0622864c-4.0148315-0.0003052-7.2710266-3.2565918-7.2710266-7.271637
+                        c0-4.0149231,3.2561951-7.2711334,7.2710266-7.2711334l35.0332336,0.0004883
+                        c4.0149231-0.0004883,7.2711487,3.255722,7.2711487,7.2706451c0,4.0150452-3.2562256,7.2713318-7.2711487,7.2713318
+                        L441.1941223,208.3440704L441.1941223,208.3440704z"/>
+                    <path class="st0" d="M382.9217834,127.8146896c-4.0144958-0.000473-7.270752-3.256752-7.270752-7.2716293
+                        c0-2.5973434,1.3867188-4.9975967,3.6352234-6.296463l30.3357849-17.5165863
+                        c1.1047058-0.6381683,2.3594666-0.9738159,3.6356506-0.9738159c4.0169373,0,7.274353,3.2573624,7.274353,7.2742844
+                        c0,2.5993729-1.3870544,5.0027466-3.6383667,6.3007431l-30.3357849,17.5095215
+                        c-1.0994873,0.6370773-2.3499451,0.9734726-3.620575,0.9734726c-0.0043335,0-0.0108032,0-0.0149841,0L382.9217834,127.8146896
+                        L382.9217834,127.8146896z"/>
+                    <path class="st0" d="M322.5118408,69.7314301c-4.0144043,0-7.270752-3.256279-7.270752-7.2711601
+                        c0-1.2756538,0.3364868-2.5316887,0.9740295-3.6359215l17.51651-30.3287239
+                        c1.2912598-2.2716675,3.706604-3.676857,6.3209839-3.676857c4.0150146,0,7.2713623,3.2562103,7.2713623,7.2711601
+                        c0,1.2924232-0.3453064,2.562645-0.9985962,3.6776733l-17.5020447,30.3287201
+                        c-1.2976074,2.2485886-3.6999512,3.6351089-6.2972107,3.6351089
+                        C322.521759,69.7314301,322.5162048,69.7314301,322.5118408,69.7314301L322.5118408,69.7314301z"/>
+                    <path class="st1" d="M485.6770325,587.9758911c-7.3986511-14.7545776-20.0787659-25.1143188-34.5973206-29.9352417
+                        c-7.0454102-2.3392334-14.5240479-3.3741455-22.0420532-2.9745483c-4.7174683,0.8642578-10.684082-0.4113159-14.2998962-6.885376
+                        c-7.3989258-14.7544556-20.0788269-25.1141357-34.5973816-29.9351196
+                        c-9.6640625-3.3320923-12.3229065-7.8840637-12.7823181-12.4311829
+                        c-2.5843811-18.9918213-12.6373901-35.1493835-26.8006287-45.9196167
+                        c-12.7367249-9.6852112-28.7891846-15.0040588-45.7156677-14.1016541
+                        c-16.9605713,0.905365-15.6248169,13.6271362,2.0848389,13.1056213
+                        c13.214325-0.3887329,25.6953735,3.8832397,35.6581726,11.4591675
+                        c11.4684448,8.7212219,19.6132202,21.8343811,21.7140198,37.2715149c0.4350891,3.9559021,1.4941711,7.0443115-7.749054,9.4071655
+                        c-3.3630066,0.8598022-6.6937561,2.0239258-9.9543152,3.5075073c-10.1124268,4.6015015-3.3074646,15.8418579,6.149353,11.7221069
+                        c10.8728027-4.7364502,22.6775208-4.9898071,33.2332153-1.4848633
+                        c11.3095093,3.755188,21.2241211,11.8997192,26.9882507,23.3946533c1.1560974,2.305603,2.3227234,6.4576416-4.7189636,11.4307251
+                        c-5.2453918,3.6327515-9.8502502,8.0692139-13.6661377,13.1144409c-3.5769958,4.7297363-6.4514465,9.9928589-8.5003662,15.6276245
+                        c-4.8639832,13.3795776,7.9157715,16.2846069,12.6013184,3.9171143c1.5794067-4.1698608,3.7433472-8.0717163,6.4085083-11.5952148
+                        c4.2436523-5.6105957,9.7826843-10.2680664,16.2792664-13.5257568c11.494873-5.7641602,24.237915-6.3236694,35.5474243-2.5684204
+                        c11.3095398,3.755249,21.1870728,11.8258057,26.9512634,23.3207397
+                        C482.1291504,610.3706055,494.0193481,604.6123047,485.6770325,587.9758911L485.6770325,587.9758911z"/>
+                    <path class="st1" d="M2.8401589,587.9758911c7.3986917-14.7545776,20.0788212-25.1143188,34.5973091-29.9352417
+                        c7.0454254-2.3392334,14.5241928-3.3741455,22.042202-2.9745483c4.717411,0.8642578,10.6841316-0.4113159,14.3000221-6.885376
+                        c7.3986588-14.7544556,20.0787888-25.1141357,34.5972748-29.9351196
+                        c9.6639481-3.3320923,12.3227234-7.8840637,12.7821045-12.4311829
+                        c2.5845337-18.9918213,12.6374207-35.1493835,26.8007507-45.9196167
+                        c12.7369232-9.6852112,28.7893219-15.0040588,45.7157288-14.1016541
+                        c16.960434,0.905365,15.6248932,13.6271362-2.0849762,13.1056213c-13.214386-0.3887329-25.6953583,3.8832397-35.6578827,11.4591675
+                        c-11.4688416,8.7212219-19.6133728,21.8343811-21.7141266,37.2715149
+                        c-0.4352722,3.9559021-1.4942627,7.0443115,7.7489319,9.4071655c3.3630066,0.8598022,6.6938324,2.0239258,9.9541779,3.5075073
+                        c10.1125641,4.6015015,3.3077393,15.8418579-6.1491089,11.7221069
+                        c-10.8730011-4.7364502-22.6775436-4.9898071-33.2331543-1.4848633
+                        c-11.3095322,3.755188-21.2241669,11.8997192-26.9883347,23.3946533c-1.1561661,2.305603-2.3227921,6.4576416,4.7188034,11.4307251
+                        c5.2454834,3.6327515,9.850296,8.0692139,13.6662292,13.1144409c3.5770569,4.7297363,6.451355,9.9928589,8.5003433,15.6276245
+                        c4.8640137,13.3795776-7.9156418,16.2846069-12.6011047,3.9171143c-1.5795288-4.1698608-3.7436295-8.0717163-6.4086838-11.5952148
+                        c-4.2436371-5.6105957-9.7826843-10.2680664-16.2790833-13.5257568
+                        c-11.4951096-5.7641602-24.2381401-6.3236694-35.5476723-2.5684204
+                        c-11.3094978,3.755249-21.1870918,11.8258057-26.9512634,23.3207397
+                        C6.3880925,610.3706055-5.5021701,604.6123047,2.8401589,587.9758911L2.8401589,587.9758911z"/>
+                    <path class="st0" d="M340.6799011,192.2847137c2.1203613,4.0962067,0.5187683,9.1354828-3.5774536,11.2558594
+                        c-4.0962219,2.1204529-9.135437,0.5188446-11.2558899-3.5773621c-2.1203613-4.0962219-0.5187683-9.1354828,3.5774536-11.2559662
+                        C333.5202332,186.5868988,338.5595093,188.1884918,340.6799011,192.2847137L340.6799011,192.2847137z"/>
+                    <path class="st0" d="M312.7565308,149.3006744c2.375885,4.5892334,0.5814209,10.2351685-4.0079041,12.6109772
+                        c-4.5893555,2.3756104-10.2352905,0.5812073-12.6109009-4.0079498c-2.375824-4.589447-0.5814209-10.2353821,4.0079651-12.6109924
+                        C304.7349854,142.9169617,310.3809204,144.7113037,312.7565308,149.3006744L312.7565308,149.3006744z"/>
+                    <path class="st0" d="M339.4502258,155.6529388c1.5142822,2.9251709,0.3705444,6.523819-2.5547791,8.0382538
+                        c-2.9251099,1.5141449-6.5238953,0.3704071-8.0380554-2.5547028c-1.5142212-2.9252472-0.3706055-6.5239716,2.5545654-8.0381165
+                        C334.3371582,151.5840912,337.9358521,152.7276306,339.4502258,155.6529388L339.4502258,155.6529388z"/>
+                    <path class="st0" d="M294.0037231,114.5216141c1.1457825,2.2134247,0.2804565,4.9364929-1.9328918,6.0823364
+                        c-2.2134705,1.1457825-4.936554,0.2803192-6.0823364-1.9331665c-1.1457825-2.2133484-0.280304-4.9362869,1.9330444-6.0821304
+                        C290.1350098,111.4428711,292.8579712,112.3081284,294.0037231,114.5216141L294.0037231,114.5216141z"/>
+                    <path class="st0" d="M147.8372803,192.2847137c-2.1203766,4.0962067-0.5187531,9.1354828,3.5774689,11.2558594
+                        c4.0962067,2.1204529,9.1354828,0.5188446,11.2558289-3.5773621c2.1206055-4.0962219,0.5190887-9.1354828-3.5771942-11.2559662
+                        C154.9971619,186.5868988,149.9578857,188.1884918,147.8372803,192.2847137L147.8372803,192.2847137z"/>
+                    <path class="st0" d="M175.7606659,149.3006744c-2.3756104,4.5892334-0.5812836,10.2351685,4.0079498,12.6109772
+                        c4.5892944,2.3756104,10.2353058,0.5812073,12.6110535-4.0079498c2.3756714-4.589447,0.5812073-10.2353821-4.0080872-12.6109924
+                        C183.7823486,142.9169617,178.1364746,144.7113037,175.7606659,149.3006744L175.7606659,149.3006744z"/>
+                    <path class="st0" d="M149.0671692,155.6529388c-1.5142212,2.9251709-0.3706055,6.523819,2.5545654,8.0382538
+                        c2.9251099,1.5141449,6.5238953,0.3704071,8.0381927-2.5547028c1.5142822-2.9252472,0.3705444-6.5239716-2.5547028-8.0381165
+                        C154.1801147,151.5840912,150.5813293,152.7276306,149.0671692,155.6529388L149.0671692,155.6529388z"/>
+                    <path class="st0" d="M194.5134583,114.5216141c-1.1457825,2.2134247-0.2803192,4.9364929,1.9331665,6.0823364
+                        c2.2134094,1.1457825,4.9362793,0.2803192,6.0821228-1.9331665c1.1457825-2.2133484,0.2804565-4.9362869-1.9330292-6.0821304
+                        C198.38237,111.4428711,195.6592255,112.3081284,194.5134583,114.5216141L194.5134583,114.5216141z"/>
+                </g>
+            </svg>
+        </a>
+        <!-- Footer copy text -->
+        <p><small>QualityLand &copy; | Website Designed by Christopher Blouin</small></p>
+    </footer>
+    <!-- End of Footer -->
+
+    <!-- Start of Back to Top Button -->
+    <button id="back-to-top">
+        <!-- Credit to https://lucide.dev/icons/chevron-up for the SVG icon! -->
+        <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="32"
+        height="32"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-chevron-up"
+        >
+        <path d="m18 15-6-6-6 6" />
+        </svg>
+    </button>
+    <!-- End of Back to Top Button -->
+
+    <!-- Bootstrap JS CDN script link -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous">
+    </script>
+    <!-- Custom JS link, placing at the bottom to allow the DOM elements to render first before executing any JavaScript code. -->
+    <script src="js/script.js"></script>
+</body>
+</html>
