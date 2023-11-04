@@ -1422,7 +1422,7 @@ Use the before pseudo to allow the entire button container to become clickable b
 
   #hero a {
     padding: 0.8rem 2.5rem;
-    overflow: auto;
+    overflow: visible;
     max-width: 300px;
   }
 
