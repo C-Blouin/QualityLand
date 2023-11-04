@@ -1421,9 +1421,8 @@ Use the before pseudo to allow the entire button container to become clickable b
 @media screen and (max-width: 560px) {
 
   #hero a {
-    padding: 0.8rem 2.5rem;
-    overflow: visible;
-    width: 300px;
+    text-transform: none;
+    letter-spacing: none;
   }
 
   #author {
