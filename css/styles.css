@@ -1123,6 +1123,10 @@ Use the before pseudo to allow the entire button container to become clickable b
   text-align: center;
 }
 
+#hero a {
+  max-width: 260px;
+}
+
 /* Overwriting bootstrap form styles of the form-control class. */
 .form-control {
   display: block;
