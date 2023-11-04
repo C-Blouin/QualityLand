@@ -1420,11 +1420,6 @@ Use the before pseudo to allow the entire button container to become clickable b
 /* White space for the About and Author sections when the device width is 560px wide. */
 @media screen and (max-width: 560px) {
 
-  #hero a {
-    text-transform: none;
-    letter-spacing: none;
-  }
-
   #author {
     padding: 0 0.5rem;
   }
