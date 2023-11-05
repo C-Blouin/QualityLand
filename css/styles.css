@@ -13,7 +13,7 @@ Christopher Blouin
 
 /* 
 
-Cusotm font-face declaration for the Decima+ Regular 2 font, the official font used on the QualityLand book cover!
+Custom font-face declaration for the Decima+ Regular 2 font, the official font used on the QualityLand book cover!
 
 Thank you to onlinewebfonts for the font, font reference here: https://www.onlinewebfonts.com/download/b5ed479ddc6f88c0425233a3abb03535 
 
@@ -383,8 +383,7 @@ nav ul li a:hover,
 }
 
 #hero a {
-  /* Center the anchor element in the parent container. */
-  margin: 0 auto;
+  margin-top: 1.5rem;
   /* Set a min-width to the anchor element. */
   min-width: 180px;
   padding: 0.8rem 1.25rem;
@@ -1133,10 +1132,6 @@ Use the before pseudo to allow the entire button container to become clickable b
 #hero a {
   max-width: 220px;
   text-align: center;
-}
-
-#hero a {
-  max-width: 260px;
 }
 
 /* Overwriting bootstrap form styles of the form-control class. */
